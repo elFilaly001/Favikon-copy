@@ -140,11 +140,6 @@ export default function LoginForm() {
     }
   };
 
-  const handleGoogleSignIn = () => {
-    // Add Google sign in logic here
-    alert('Google Sign In clicked');
-  };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-6 px-4 sm:py-12 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-3">
@@ -207,7 +202,7 @@ export default function LoginForm() {
             </div>
             
             <div className="mt-4 sm:mt-6">
-              <GoogleButton onClick={handleGoogleSignIn} />
+              <GoogleButton />
             </div>
           </div>
           

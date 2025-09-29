@@ -5,7 +5,7 @@ interface SubmitButtonProps {
   disabled?: boolean;
   loading?: boolean;
   className?: string;
-  variant?: 'primary' | 'secondary' | 'google';
+  variant?: 'primary' | 'secondary' | 'google' | 'emerald';
 }
 
 export default function SubmitButton({
@@ -22,7 +22,8 @@ export default function SubmitButton({
   const variantClasses = {
     primary: "border-transparent text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 focus:ring-purple-500",
     secondary: "border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-purple-500",
-    google: "border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-purple-500"
+    google: "border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-purple-500",
+    emerald: "border-transparent text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-emerald-500"
   };
 
   return (
