@@ -10,6 +10,7 @@
     "phone": "رقم الهاتف",
     "country": "البلد",
     "language": "اللغة",
+    "company": "الشركة",
     "submit": "إرسال",
     "cancel": "إلغاء",
     "signInWithGoogle": "تسجيل الدخول بواسطة جوجل",
@@ -18,14 +19,38 @@
     "forgotPassword": "نسيت كلمة المرور؟",
     "dashboard": "لوحة التحكم",
     "welcome": "مرحباً",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "rememberMe": "تذكرني",
+    "or": "أو",
+    "termsAndConditions": "الشروط والأحكام",
+    "acceptTerms": "أوافق على",
+    "subscribeNewsletter": "الاشتراك في النشرة الإخبارية والعروض التجارية",
+    "createAccountFree": "إنشاء حساب مجاني",
+    "firstNamePlaceholder": "الاسم الأول",
+    "lastNamePlaceholder": "اسم العائلة",
+    "emailPlaceholder": "example@gmail.com",
+    "phonePlaceholder": "123 45 67",
+    "companyPlaceholder": "اسم الشركة",
+    "countryPlaceholder": "البلد",
+    "languagePlaceholder": "العربية"
   },
+  "messages": {
+    "accountCreatedSuccess": "تم إنشاء الحساب بنجاح!",
+    "submissionError": "حدث خطأ. يرجى المحاولة مرة أخرى."
+  },
+  "search": "ابحث عن بلد",
   "validation": {
     "required": "هذا الحقل مطلوب",
     "invalidEmail": "يرجى إدخال عنوان بريد إلكتروني صحيح",
     "passwordTooShort": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
     "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
-    "invalidPhone": "يرجى إدخال رقم هاتف صحيح"
+    "invalidPhone": "يرجى إدخال رقم هاتف صحيح",
+    "firstNameRequired": "الاسم الأول مطلوب",
+    "lastNameRequired": "اسم العائلة مطلوب",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "countryRequired": "يرجى اختيار البلد",
+    "languageRequired": "يرجى اختيار اللغة",
+    "termsRequired": "يجب أن توافق على الشروط والأحكام"
   },
   "pages": {
     "home": {
@@ -44,5 +69,28 @@
       "title": "لوحة التحكم",
       "subtitle": "مرحباً بك في لوحة التحكم"
     }
+  }
+  ,
+  "countries": {
+    "us": "الولايات المتحدة",
+    "gb": "المملكة المتحدة",
+    "fr": "فرنسا",
+    "de": "ألمانيا",
+    "es": "إسبانيا",
+    "it": "إيطاليا",
+    "ca": "كندا",
+    "au": "أستراليا",
+    "jp": "اليابان",
+    "kr": "كوريا الجنوبية",
+    "cn": "الصين",
+    "in": "الهند",
+    "br": "البرازيل",
+    "mx": "المكسيك",
+    "ar": "الأرجنتين",
+    "ma": "المغرب",
+    "eg": "مصر",
+    "sa": "المملكة العربية السعودية",
+    "ae": "الإمارات",
+    "za": "جنوب أفريقيا"
   }
 }

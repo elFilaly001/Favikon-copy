@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import EmailInput from '../inputs/EmailInput';
 import PasswordInput from '../inputs/PasswordInput';
 import GoogleButton from '../Buttons/GoogleButton';
-import LanguageSelector from '../LanguageSelector';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Link from 'next/link';
 
@@ -146,11 +145,6 @@ export default function LoginForm() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-6 px-4 sm:py-12 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-3">
-        {/* Language Selector */}
-        <div className="flex justify-end mb-4">
-          <LanguageSelector />
-        </div>
-        
         <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-100">
           {/* Header */}
           <div className="text-center mb-6">
@@ -158,7 +152,7 @@ export default function LoginForm() {
             <p className="mt-2 text-sm text-gray-600">{t('pages.login.subtitle')}</p>
           </div>
           
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
             <EmailInput
               value={formData.email}
               onChange={handleInputChange}
@@ -186,7 +180,7 @@ export default function LoginForm() {
                   className="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded"
                 />
                 <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
-                  Remember me
+                  {t('common.rememberMe')}
                 </label>
               </div>
               
@@ -211,7 +205,7 @@ export default function LoginForm() {
                 <div className="w-full border-t border-gray-300" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">or</span>
+                <span className="px-2 bg-white text-gray-500">{t('common.or')}</span>
               </div>
             </div>
             

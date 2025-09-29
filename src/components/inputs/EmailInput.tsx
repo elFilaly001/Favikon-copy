@@ -54,7 +54,7 @@ export default function EmailInput({
         onBlur={onBlur}
         placeholder={placeholder}
         autoComplete="email"
-        className={`w-full px-3 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 transition-colors bg-gray-50 text-gray-900 placeholder-gray-500 text-base sm:text-sm ${
+        className={`w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 transition-colors bg-gray-50 text-gray-900 placeholder-gray-500 text-base sm:text-sm ${
           hasError 
             ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
             : 'border-gray-300 focus:ring-emerald-500 focus:border-emerald-500'

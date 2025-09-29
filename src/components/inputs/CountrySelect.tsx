@@ -4,17 +4,22 @@ interface Country {
   flag: string;
 }
 
+import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from '../../languages/translate';
+
 interface CountrySelectProps {
   id?: string;
   name?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onCountryChange?: (countryCode: string) => void;
   onBlur?: (e: React.FocusEvent<HTMLSelectElement>) => void;
   required?: boolean;
   className?: string;
   label?: string;
   error?: string;
   placeholder?: string;
+  getCountryName?: (country: Country) => string;
 }
 
 const countries: Country[] = [
@@ -102,57 +107,170 @@ export default function CountrySelect({
   name = "country",
   value,
   onChange,
+  onCountryChange,
   onBlur,
   required = false,
   className = "",
-  label = "Country",
+  label,
   error,
-  placeholder = "Country"
+  placeholder,
+  getCountryName
 }: CountrySelectProps) {
-  
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e);
+  const { t } = useTranslation();
+  const labelText = label ?? t('common.country');
+  const placeholderText = placeholder ?? t('common.country');
+
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const [highlight, setHighlight] = useState(0);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  // Flag image loader that uses CDN flags and falls back to emoji when not available
+  function FlagImage({ code, emoji, imgClass, spanClass }: { code: string; emoji?: string; imgClass?: string; spanClass?: string }) {
+    const [ok, setOk] = useState(true);
+    const src = `https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/${code.toLowerCase()}.svg`;
+    return (
+      <>
+        {ok ? (
+          <img
+            src={src}
+            alt={code}
+            onError={() => setOk(false)}
+            onLoad={() => setOk(true)}
+            className={imgClass}
+          />
+        ) : (
+          <span aria-hidden className={spanClass}>
+            {emoji ?? ''}
+          </span>
+        )}
+      </>
+    );
+  }
+
+  const hasError = !!error;
+
+  const resolveName = (c: Country) => {
+    if (getCountryName) return getCountryName(c);
+    const key = `countries.${c.code.toLowerCase()}`;
+    const translated = t(key);
+    return translated && translated !== key ? translated : c.name;
   };
 
-  // Only show error if explicitly passed (don't validate automatically)
-  const hasError = !!error;
+  const filtered = countries.filter((c) => {
+    const q = query.trim().toLowerCase();
+    if (!q) return true;
+    const display = resolveName(c).toLowerCase();
+    return display.includes(q) || c.code.toLowerCase().includes(q);
+  });
+
+  useEffect(() => {
+    function onDoc(e: MouseEvent) {
+      if (!ref.current) return;
+      if (!(e.target instanceof Node)) return;
+      if (!ref.current.contains(e.target)) {
+        setOpen(false);
+        setQuery('');
+      }
+    }
+    document.addEventListener('click', onDoc);
+    return () => document.removeEventListener('click', onDoc);
+  }, []);
+
+  useEffect(() => {
+    if (open) setHighlight(0);
+  }, [open, query]);
+
+  const select = (code: string) => {
+    // call onCountryChange with code
+    onCountryChange?.(code);
+    // call onChange with synthetic event for compatibility
+    if (onChange) {
+      const synthetic = { target: { value: code, name } } as unknown as React.ChangeEvent<HTMLSelectElement>;
+      onChange(synthetic);
+    }
+    setOpen(false);
+    setQuery('');
+  };
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setHighlight((h) => Math.min(h + 1, filtered.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setHighlight((h) => Math.max(h - 1, 0));
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      const c = filtered[highlight];
+      if (c) select(c.code);
+    } else if (e.key === 'Escape') {
+      setOpen(false);
+      setQuery('');
+    }
+  };
+
+  const selectedCountry = countries.find((c) => c.code === value) || countries[0];
 
   return (
     <div className="space-y-1">
-      {label && (
-        <label 
-          htmlFor={id} 
-          className="block text-sm font-medium text-gray-700"
-        >
-          {label}
+      {labelText && (
+        <label htmlFor={id} className="block text-sm font-medium text-gray-700">
+          {labelText} {!required && <span className="text-gray-500">({t('common.optional') ?? 'optional'})</span>}
         </label>
       )}
-      <div className="relative">
-        <select
-          id={id}
-          name={name}
-          value={value}
-          onChange={handleChange}
-          onBlur={onBlur}
-          className={`w-full px-3 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 transition-colors bg-gray-50 text-gray-900 text-base sm:text-sm appearance-none pr-10 ${
-            hasError 
-              ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
-              : 'border-gray-300 focus:ring-emerald-500 focus:border-emerald-500'
-          } ${className}`}
+
+      <div ref={ref} className={`relative ${className}`}>
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          className={`w-full flex items-center gap-2 px-3 py-2 border rounded-lg bg-white ${hasError ? 'border-red-300' : 'border-gray-200'}`}
+          aria-haspopup="listbox"
+          aria-expanded={open}
         >
-          <option value="">{placeholder}</option>
-          {countries.map((country) => (
-            <option key={country.code} value={country.code}>
-              {country.flag} {country.name}
-            </option>
-          ))}
-        </select>
-        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <FlagImage code={selectedCountry.code} emoji={selectedCountry.flag} imgClass="w-5 h-3 object-cover" spanClass="text-sm" />
+          <span className="truncate text-sm text-gray-900">{resolveName(selectedCountry)}</span>
+          <svg className="w-4 h-4 ml-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
-        </div>
+        </button>
+
+        {open && (
+          <div className="absolute z-50 mt-2 w-full bg-white border border-gray-200 rounded-md shadow-lg">
+            <div className="p-2">
+              <input
+                autoFocus
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={onKeyDown}
+                placeholder={t('search')}
+                className="w-full px-2 py-1 border border-gray-300 rounded text-sm text-gray-900 focus:outline-none"
+              />
+            </div>
+            <ul role="listbox" className="max-h-56 overflow-auto">
+              {filtered.map((c, i) => (
+                <li
+                  key={c.code}
+                  role="option"
+                  aria-selected={value === c.code}
+                  onMouseEnter={() => setHighlight(i)}
+                  onMouseDown={(e) => { e.preventDefault(); select(c.code); }}
+                  className={`flex items-center gap-2 px-3 py-2 cursor-pointer text-sm ${highlight === i ? 'bg-emerald-50' : 'hover:bg-gray-50'} ${value === c.code ? 'font-medium' : 'font-normal'}`}
+                >
+                  <div className="w-6 h-3 flex-shrink-0">
+                    <FlagImage code={c.code} emoji={c.flag} imgClass="w-6 h-3 object-cover" spanClass="text-sm" />
+                  </div>
+                  <div className="flex-1 min-w-0 text-gray-900 flex items-center justify-between">
+                    <div className="truncate text-sm">{resolveName(c)}</div>
+                    <div className="text-[10px] text-gray-600 ml-2">{c.code}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
+
       {hasError && (
         <p className="text-sm text-red-600 mt-1">
           {error}

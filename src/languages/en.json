@@ -10,6 +10,7 @@
     "phone": "Phone Number",
     "country": "Country",
     "language": "Language",
+    "company": "Company",
     "submit": "Submit",
     "cancel": "Cancel",
     "signInWithGoogle": "Sign in with Google",
@@ -18,14 +19,38 @@
     "forgotPassword": "Forgot Password?",
     "dashboard": "Dashboard",
     "welcome": "Welcome",
-    "logout": "Logout"
+    "logout": "Logout",
+    "rememberMe": "Remember me",
+    "or": "or",
+    "termsAndConditions": "Terms and Conditions",
+    "acceptTerms": "Accept our",
+    "subscribeNewsletter": "Subscribe to our newsletter and commercial offers",
+    "createAccountFree": "Create account for Free",
+    "firstNamePlaceholder": "First name",
+    "lastNamePlaceholder": "Last name",
+    "emailPlaceholder": "example@gmail.com",
+    "phonePlaceholder": "123 45 67",
+    "companyPlaceholder": "Company name",
+    "countryPlaceholder": "Country",
+    "languagePlaceholder": "English"
   },
+  "messages": {
+    "accountCreatedSuccess": "Account created successfully!",
+    "submissionError": "An error occurred. Please try again."
+  },
+  "search": "Search country",
   "validation": {
     "required": "This field is required",
     "invalidEmail": "Please enter a valid email address",
     "passwordTooShort": "Password must be at least 8 characters",
     "passwordsDoNotMatch": "Passwords do not match",
-    "invalidPhone": "Please enter a valid phone number"
+    "invalidPhone": "Please enter a valid phone number",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "emailRequired": "Email is required",
+    "countryRequired": "Please select a country",
+    "languageRequired": "Please select a language",
+    "termsRequired": "You must accept the terms and conditions"
   },
   "pages": {
     "home": {
@@ -44,5 +69,28 @@
       "title": "Dashboard",
       "subtitle": "Welcome to your dashboard"
     }
+  }
+  ,
+  "countries": {
+    "us": "United States",
+    "gb": "United Kingdom",
+    "fr": "France",
+    "de": "Germany",
+    "es": "Spain",
+    "it": "Italy",
+    "ca": "Canada",
+    "au": "Australia",
+    "jp": "Japan",
+    "kr": "South Korea",
+    "cn": "China",
+    "in": "India",
+    "br": "Brazil",
+    "mx": "Mexico",
+    "ar": "Argentina",
+    "ma": "Morocco",
+    "eg": "Egypt",
+    "sa": "Saudi Arabia",
+    "ae": "UAE",
+    "za": "South Africa"
   }
 }

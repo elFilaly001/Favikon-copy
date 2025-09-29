@@ -34,18 +34,19 @@ const translations: Record<string, Translations> = {
 // Default language
 export const DEFAULT_LANGUAGE = 'en';
 
-// Get current language from localStorage or default
+// Get current language from cookie or default
 export const getCurrentLanguage = (): string => {
   if (typeof window !== 'undefined') {
-    return localStorage.getItem('language') || DEFAULT_LANGUAGE;
+    const cookie = document.cookie.split('; ').find(row => row.startsWith('language='));
+    return cookie ? cookie.split('=')[1] : DEFAULT_LANGUAGE;
   }
   return DEFAULT_LANGUAGE;
 };
 
-// Set language in localStorage
+// Set language in cookie
 export const setLanguage = (languageCode: string): void => {
   if (typeof window !== 'undefined') {
-    localStorage.setItem('language', languageCode);
+    document.cookie = `language=${languageCode}; path=/; max-age=31536000`; // 1 year
     // Trigger a custom event for language change
     window.dispatchEvent(new CustomEvent('languageChange', { detail: languageCode }));
   }
