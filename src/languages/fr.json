@@ -1,0 +1,96 @@
+{
+  "common": {
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "phone": "Numéro de téléphone",
+    "country": "Pays",
+    "language": "Langue",
+    "company": "Entreprise",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "signInWithGoogle": "Se connecter avec Google",
+    "alreadyHaveAccount": "Vous avez déjà un compte ?",
+    "dontHaveAccount": "Vous n'avez pas de compte ?",
+    "forgotPassword": "Mot de passe oublié ?",
+    "dashboard": "Tableau de bord",
+    "welcome": "Bienvenue",
+    "logout": "Se déconnecter",
+    "rememberMe": "Se souvenir de moi",
+    "or": "ou",
+    "termsAndConditions": "Conditions d'utilisation",
+    "acceptTerms": "Accepter nos",
+    "subscribeNewsletter": "S'abonner à notre newsletter et aux offres commerciales",
+    "createAccountFree": "Créer un compte gratuitement",
+    "firstNamePlaceholder": "Prénom",
+    "lastNamePlaceholder": "Nom de famille",
+    "emailPlaceholder": "exemple@gmail.com",
+    "phonePlaceholder": "123 45 67",
+    "companyPlaceholder": "Nom de l'entreprise",
+    "countryPlaceholder": "Pays",
+    "languagePlaceholder": "Français"
+  },
+  "messages": {
+    "accountCreatedSuccess": "Compte créé avec succès !",
+    "submissionError": "Une erreur s'est produite. Veuillez réessayer."
+  },
+  "search": "Rechercher un pays",
+  "validation": {
+    "required": "Ce champ est requis",
+    "invalidEmail": "Veuillez entrer une adresse email valide",
+    "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères",
+    "passwordsDoNotMatch": "Les mots de passe ne correspondent pas",
+    "invalidPhone": "Veuillez entrer un numéro de téléphone valide",
+    "firstNameRequired": "Le prénom est requis",
+    "lastNameRequired": "Le nom de famille est requis",
+    "emailRequired": "L'email est requis",
+    "countryRequired": "Veuillez sélectionner un pays",
+    "languageRequired": "Veuillez sélectionner une langue",
+    "termsRequired": "Vous devez accepter les conditions d'utilisation"
+  },
+  "pages": {
+    "home": {
+      "title": "Bienvenue sur notre plateforme",
+      "description": "Commencez par vous connecter ou créer un compte"
+    },
+    "login": {
+      "title": "Se connecter",
+      "subtitle": "Bon retour ! Veuillez vous connecter à votre compte"
+    },
+    "register": {
+      "title": "Créer un compte",
+      "subtitle": "Rejoignez-nous aujourd'hui ! Créez votre nouveau compte"
+    },
+    "dashboard": {
+      "title": "Tableau de bord",
+      "subtitle": "Bienvenue dans votre tableau de bord"
+    }
+  }
+  ,
+  "countries": {
+    "us": "États-Unis",
+    "gb": "Royaume-Uni",
+    "fr": "France",
+    "de": "Allemagne",
+    "es": "Espagne",
+    "it": "Italie",
+    "ca": "Canada",
+    "au": "Australie",
+    "jp": "Japon",
+    "kr": "Corée du Sud",
+    "cn": "Chine",
+    "in": "Inde",
+    "br": "Brésil",
+    "mx": "Mexique",
+    "ar": "Argentine",
+    "ma": "Maroc",
+    "eg": "Égypte",
+    "sa": "Arabie Saoudite",
+    "ae": "Émirats Arabes Unis",
+    "za": "Afrique du Sud"
+  }
+}

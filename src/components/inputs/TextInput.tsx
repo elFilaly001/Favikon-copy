@@ -1,4 +1,4 @@
-interface EmailInputProps {
+interface TextInputProps {
   id?: string;
   name?: string;
   value?: string;
@@ -9,28 +9,24 @@ interface EmailInputProps {
   className?: string;
   label?: string;
   error?: string;
+  type?: 'text' | 'tel';
 }
 
-export default function EmailInput({
-  id = "email",
-  name = "email",
+export default function TextInput({
+  id,
+  name,
   value,
   onChange,
   onBlur,
-  placeholder = "example@gmail.com",
-  required = true,
+  placeholder,
+  required = false,
   className = "",
-  label = "Email",
-  error
-}: EmailInputProps) {
-  // Sanitize input to prevent XSS
-  const sanitizeInput = (input: string) => {
-    return input
-      .replace(/[<>'"]/g, ''); // Remove potential XSS characters but keep spaces and case
-  };
-
+  label,
+  error,
+  type = 'text'
+}: TextInputProps) {
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Just pass through the original event for now to test
     onChange?.(e);
   };
 
@@ -39,21 +35,22 @@ export default function EmailInput({
 
   return (
     <div className="space-y-1">
-      <label 
-        htmlFor={id} 
-        className="block text-sm font-medium text-gray-700"
-      >
-        {label}
-      </label>
+      {label && (
+        <label 
+          htmlFor={id} 
+          className="block text-sm font-medium text-gray-700"
+        >
+          {label}
+        </label>
+      )}
       <input
-        type="email"
+        type={type}
         id={id}
         name={name}
         value={value}
         onChange={handleChange}
         onBlur={onBlur}
         placeholder={placeholder}
-        autoComplete="email"
         className={`w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 transition-colors bg-gray-50 text-gray-900 placeholder-gray-500 text-base sm:text-sm ${
           hasError 
             ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
