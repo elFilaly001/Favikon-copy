@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import LanguageSelector from './LanguageSelector';
+import LanguageSelector from './inputs/LanguageSelector';
 
 /**
  * Example component demonstrating how to use the internationalization system

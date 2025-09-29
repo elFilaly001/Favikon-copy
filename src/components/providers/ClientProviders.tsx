@@ -1,7 +1,7 @@
 'use client'
 
-import { AuthProvider } from '../contexts/AuthContext'
-import { LanguageProvider } from '../contexts/LanguageContext'
+import { AuthProvider } from '../../contexts/AuthContext'
+import { LanguageProvider } from '../../contexts/LanguageContext'
 
 interface ClientProvidersProps {
   children: React.ReactNode

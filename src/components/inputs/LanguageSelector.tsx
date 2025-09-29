@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { LANGUAGES, Language } from '../languages/translate';
-import { useLanguage } from '../contexts/LanguageContext';
+import { LANGUAGES, Language } from '../../languages/translate';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 interface LanguageSelectorProps {
   className?: string;
