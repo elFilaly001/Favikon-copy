@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 interface GoogleButtonProps {
   disabled?: boolean;
@@ -15,6 +16,7 @@ export default function GoogleButton({
 }: GoogleButtonProps) {
   const [isLoading, setIsLoading] = useState(false)
   const { login } = useAuth()
+  const { t } = useLanguage()
 
   useEffect(() => {
     // Load Google Sign-In script
@@ -138,7 +140,7 @@ export default function GoogleButton({
             alt="Google" 
             className="w-5 h-5 mr-3"
           />
-          Sign in with Google
+          {t('common.signInWithGoogle')}
         </>
       )}
     </button>

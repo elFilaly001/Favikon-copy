@@ -1,0 +1,48 @@
+{
+  "common": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone Number",
+    "country": "Country",
+    "language": "Language",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "signInWithGoogle": "Sign in with Google",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "forgotPassword": "Forgot Password?",
+    "dashboard": "Dashboard",
+    "welcome": "Welcome",
+    "logout": "Logout"
+  },
+  "validation": {
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address",
+    "passwordTooShort": "Password must be at least 8 characters",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "invalidPhone": "Please enter a valid phone number"
+  },
+  "pages": {
+    "home": {
+      "title": "Welcome to Our Platform",
+      "description": "Get started by logging in or creating an account"
+    },
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Welcome back! Please sign in to your account"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join us today! Create your new account"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Welcome to your dashboard"
+    }
+  }
+}

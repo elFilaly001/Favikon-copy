@@ -1,0 +1,48 @@
+{
+  "common": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "phone": "رقم الهاتف",
+    "country": "البلد",
+    "language": "اللغة",
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "signInWithGoogle": "تسجيل الدخول بواسطة جوجل",
+    "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+    "dontHaveAccount": "لا تملك حساباً؟",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "dashboard": "لوحة التحكم",
+    "welcome": "مرحباً",
+    "logout": "تسجيل الخروج"
+  },
+  "validation": {
+    "required": "هذا الحقل مطلوب",
+    "invalidEmail": "يرجى إدخال عنوان بريد إلكتروني صحيح",
+    "passwordTooShort": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
+    "invalidPhone": "يرجى إدخال رقم هاتف صحيح"
+  },
+  "pages": {
+    "home": {
+      "title": "مرحباً بك في منصتنا",
+      "description": "ابدأ عن طريق تسجيل الدخول أو إنشاء حساب"
+    },
+    "login": {
+      "title": "تسجيل الدخول",
+      "subtitle": "مرحباً بعودتك! يرجى تسجيل الدخول إلى حسابك"
+    },
+    "register": {
+      "title": "إنشاء حساب",
+      "subtitle": "انضم إلينا اليوم! أنشئ حسابك الجديد"
+    },
+    "dashboard": {
+      "title": "لوحة التحكم",
+      "subtitle": "مرحباً بك في لوحة التحكم"
+    }
+  }
+}
